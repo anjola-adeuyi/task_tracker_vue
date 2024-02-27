@@ -1,10 +1,12 @@
 <script>
 import Header from './components/Header.vue';
+import Task from './components/Tasks.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
+    Task,
   },
   data() {
     return {
@@ -39,6 +41,7 @@ export default {
 <template>
   <div class="container">
     <Header title="Task Tracker" />
+    <Task v-bind:tasks="tasks" />
   </div>
 </template>
 
