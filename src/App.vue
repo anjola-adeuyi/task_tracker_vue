@@ -18,6 +18,10 @@ export default {
       console.log('delete from app', id);
       this.tasks = this.tasks.filter((task) => task.id !== id);
     },
+    toggleReminder(id) {
+      console.log('toggle reminder', id);
+      this.tasks = this.tasks.map((task) => (task.id === id ? { ...task, reminder: !task.reminder } : task));
+    },
   },
   created() {
     this.tasks = [
@@ -49,6 +53,7 @@ export default {
     <Header title="Task Tracker" />
     <Tasks
       v-on:delete-task="deleteTaskFromApp"
+      v-on:toggle-reminder="toggleReminder"
       v-bind:tasks="tasks"
     />
   </div>

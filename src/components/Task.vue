@@ -1,5 +1,8 @@
 <template>
-  <div v-bind:class="[task.reminder ? 'reminder' : '', 'task']">
+  <div
+    v-on:dblclick="$emit('toggle-reminder', task.id)"
+    v-bind:class="[task.reminder ? 'reminder' : '', 'task']"
+  >
     <h3>
       <span>
         {{ task.text }}
