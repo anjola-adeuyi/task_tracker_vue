@@ -1,17 +1,23 @@
 <script>
 import Header from './components/Header.vue';
-import Task from './components/Tasks.vue';
+import Tasks from './components/Tasks.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
-    Task,
+    Tasks,
   },
   data() {
     return {
       tasks: [],
     };
+  },
+  methods: {
+    deleteTaskFromApp(id) {
+      console.log('delete from app', id);
+      this.tasks = this.tasks.filter((task) => task.id !== id);
+    },
   },
   created() {
     this.tasks = [
@@ -41,7 +47,10 @@ export default {
 <template>
   <div class="container">
     <Header title="Task Tracker" />
-    <Task v-bind:tasks="tasks" />
+    <Tasks
+      v-on:delete-task="deleteTaskFromApp"
+      v-bind:tasks="tasks"
+    />
   </div>
 </template>
 

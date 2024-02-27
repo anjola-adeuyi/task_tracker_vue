@@ -9,6 +9,7 @@
       <i
         class="fas fa-solid fa-rectangle-xmark"
         v-if="task.reminder"
+        @click="deleteTask(task.id)"
       ></i>
     </h3>
     <p>{{ task.day }}</p>
@@ -22,6 +23,12 @@ export default {
     task: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    deleteTask(id) {
+      this.$emit('delete-task', id);
+      console.log(id);
     },
   },
 };
