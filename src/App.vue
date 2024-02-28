@@ -1,12 +1,14 @@
 <script>
 import Header from './components/Header.vue';
 import Tasks from './components/Tasks.vue';
+import AddTask from './components/AddTask.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
     Tasks,
+    AddTask,
   },
   data() {
     return {
@@ -14,6 +16,9 @@ export default {
     };
   },
   methods: {
+    addTask(task) {
+      this.tasks = [...this.tasks, task];
+    },
     deleteTaskFromApp(id) {
       console.log('delete from app', id);
       this.tasks = this.tasks.filter((task) => task.id !== id);
@@ -50,6 +55,7 @@ export default {
 
 <template>
   <div class="container">
+    <AddTask v-on:add-task="addTask" />
     <Header title="Task Tracker" />
     <Tasks
       v-on:delete-task="deleteTaskFromApp"
