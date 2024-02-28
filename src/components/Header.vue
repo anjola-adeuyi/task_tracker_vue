@@ -2,8 +2,9 @@
   <header>
     <h1>{{ title }}</h1>
     <Button
-      color="green"
-      text="Add Task"
+      v-bind:color="showAddTask ? 'red' : 'green'"
+      v-bind:text="showAddTask ? 'Close' : 'Add Task'"
+      v-on:btn-click="$emit('toggle-add-task')"
     />
   </header>
 </template>
@@ -20,6 +21,7 @@ export default {
       type: String,
       required: true,
     },
+    showAddTask: Boolean,
   },
 };
 </script>

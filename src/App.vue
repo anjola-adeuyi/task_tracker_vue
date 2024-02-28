@@ -13,9 +13,13 @@ export default {
   data() {
     return {
       tasks: [],
+      showAddTask: false,
     };
   },
   methods: {
+    toggleAddTask() {
+      this.showAddTask = !this.showAddTask;
+    },
     addTask(task) {
       this.tasks = [...this.tasks, task];
     },
@@ -55,8 +59,15 @@ export default {
 
 <template>
   <div class="container">
-    <AddTask v-on:add-task="addTask" />
-    <Header title="Task Tracker" />
+    <Header
+      v-on:toggle-add-task="toggleAddTask"
+      v-bind:showAddTask="showAddTask"
+      title="Task Tracker"
+    />
+    <AddTask
+      v-show="showAddTask"
+      v-on:add-task="addTask"
+    />
     <Tasks
       v-on:delete-task="deleteTaskFromApp"
       v-on:toggle-reminder="toggleReminder"

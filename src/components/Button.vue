@@ -20,7 +20,8 @@ export default {
   },
   methods: {
     onClick() {
-      console.log('click');
+      console.log('toggle add task clicked');
+      this.$emit('btn-click');
     },
   },
 };
