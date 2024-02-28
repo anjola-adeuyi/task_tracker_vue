@@ -1,6 +1,6 @@
 # Task Tracker Vue
 
-Task Tracker Vue is a simple project built with Vue.js to track tasks with reminders.
+Task Tracker Vue is a simple project built with Vue.js to track tasks with reminders. [https://task-tracker-vue-seven.vercel.app/](https://task-tracker-vue-seven.vercel.app/)
 
 ## Key Features when working with Vue
 
@@ -33,6 +33,8 @@ In Vue:
 2. Toggle Reminder: Double click on a task to toggle its reminder status.
 3. Delete Task: Click on the delete icon next to a task to remove it from the list.
 4. Fetch Task from API
+
+![assets/tracker_preview.png](src/assets/preview.png)
 
 ## Project Setup
 
